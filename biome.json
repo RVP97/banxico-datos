@@ -33,5 +33,51 @@
         "organizeImports": "on"
       }
     }
-  }
+  },
+  "overrides": [
+    {
+      "includes": [
+        "components/data-grid.tsx",
+        "components/market-ticker.tsx",
+        "components/series-card.tsx",
+        "app/(dashboard)/layout.tsx",
+        "app/(dashboard)/empleo/**/*.ts",
+        "app/(dashboard)/empleo/**/*.tsx",
+        "app/(dashboard)/expectativas/**/*.ts",
+        "app/(dashboard)/expectativas/**/*.tsx",
+        "app/(dashboard)/finanzas-publicas/**/*.ts",
+        "app/(dashboard)/finanzas-publicas/**/*.tsx",
+        "app/(dashboard)/balanza-pagos/**/*.ts",
+        "app/(dashboard)/balanza-pagos/**/*.tsx",
+        "app/(dashboard)/mercado-dinero/**/*.ts",
+        "app/(dashboard)/mercado-dinero/**/*.tsx",
+        "app/(dashboard)/tasas/**/*.ts",
+        "app/(dashboard)/tasas/**/*.tsx",
+        "app/(dashboard)/inflacion/**/*.ts",
+        "app/(dashboard)/inflacion/**/*.tsx",
+        "app/(dashboard)/banco-central/**/*.ts",
+        "app/(dashboard)/banco-central/**/*.tsx",
+        "app/(dashboard)/tipo-cambio/**/*.ts",
+        "app/(dashboard)/tipo-cambio/**/*.tsx",
+        "app/(dashboard)/actividad/**/*.ts",
+        "app/(dashboard)/actividad/**/*.tsx",
+        "app/(dashboard)/comercio/**/*.ts",
+        "app/(dashboard)/comercio/**/*.tsx",
+        "app/(dashboard)/reservas/**/*.ts",
+        "app/(dashboard)/reservas/**/*.tsx",
+        "app/(dashboard)/monetario/**/*.ts",
+        "app/(dashboard)/monetario/**/*.tsx",
+        "app/(dashboard)/remesas/**/*.ts",
+        "app/(dashboard)/remesas/**/*.tsx",
+        "app/(dashboard)/page.tsx",
+        "app/(dashboard)/actions/overview.ts",
+        "app/(dashboard)/types/overview.ts",
+        "app/(dashboard)/components/kpi-cards.tsx",
+        "app/(dashboard)/components/overview-sparklines.tsx"
+      ],
+      "formatter": {
+        "indentStyle": "tab"
+      }
+    }
+  ]
 }
