@@ -8,11 +8,13 @@ import {
   Building2,
   CircleDollarSign,
   Coins,
+  CreditCard,
   Factory,
   Globe,
   Home,
   Landmark,
   LineChart,
+  Palmtree,
   Percent,
   ScrollText,
   TrendingUp,
@@ -50,6 +52,15 @@ const economiaNav = [
   { title: "Comercio Exterior", href: "/comercio", icon: ArrowLeftRight },
   { title: "Remesas", href: "/remesas", icon: Banknote },
   { title: "Expectativas", href: "/expectativas", icon: LineChart },
+  { title: "Turismo", href: "/turismo", icon: Palmtree },
+];
+
+const infraestructuraNav = [
+  {
+    title: "Sistemas de Pago",
+    href: "/sistemas-pago",
+    icon: CreditCard,
+  },
 ];
 
 const banxicoNav = [
@@ -69,6 +80,7 @@ const navGroups = [
   { label: null, items: overviewNav },
   { label: "Mercados", items: mercadosNav },
   { label: "Economía", items: economiaNav },
+  { label: "Infraestructura", items: infraestructuraNav },
   { label: "Banxico y Gobierno", items: banxicoNav },
 ];
 

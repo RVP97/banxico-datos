@@ -66,9 +66,101 @@ export const SERIES = {
   IED_CUENTAS: "SE30333",
   DEUDA_EXTERNA: "SE44968",
 
-  // Tourism (monthly, miles USD)
+  // Tourism — revenue & spending (monthly, thousands USD)
   TURISMO_INGRESOS: "SE5855",
+  TURISMO_EGRESOS: "SE5857",
   TURISMO_SALDO: "SE5828",
+  TURISMO_INGRESOS_NO_FRONT: "SE5826",
+  TURISMO_INGRESOS_CRUCEROS: "SE5852",
+  TURISMO_INGRESOS_FRONT_PERNOCTA: "SE5853",
+  TURISMO_INGRESOS_FRONT_SIN_PERNOCTA: "SE5854",
+
+  // Tourism — visitor counts (monthly, thousands)
+  TURISMO_VISITANTES_INGRESOS: "SE5829",
+  TURISMO_TURISTAS_INGRESOS: "SE5830",
+  TURISMO_EXCURSIONISTAS_INGRESOS: "SE5831",
+  TURISMO_VISITANTES_EGRESOS: "SE5841",
+  TURISMO_CRUCEROS_VISITANTES: "SE5847",
+
+  // Tourism — average spending (monthly, USD per visitor)
+  TURISMO_GASTO_MEDIO_TURISTA: "SE5835",
+  TURISMO_GASTO_MEDIO_NO_FRONT: "SE5836",
+  TURISMO_GASTO_MEDIO_CRUCERO: "SE5840",
+
+  // Payment systems — SPEI daily (number & millions MXN)
+  SPEI_ENVIADAS_NUM: "SF316454",
+  SPEI_ENVIADAS_MONTO: "SF316455",
+  SPEI_RECIBIDAS_NUM: "SF316456",
+  SPEI_RECIBIDAS_MONTO: "SF316457",
+
+  // Payment systems — SPEI P2P daily (number & millions MXN)
+  SPEI_P2P_TOTAL_NUM: "SF336085",
+  SPEI_P2P_MENOR_8K_NUM: "SF336086",
+  SPEI_P2P_8K_300K_NUM: "SF336087",
+  SPEI_P2P_MAYOR_300K_NUM: "SF336088",
+  SPEI_P2P_TOTAL_MONTO: "SF336081",
+  SPEI_P2P_BAJO_VALOR_NUM: "SF355689",
+  SPEI_P2P_ALTO_VALOR_NUM: "SF355690",
+  SPEI_P2P_BAJO_VALOR_MONTO: "SF355691",
+  SPEI_P2P_ALTO_VALOR_MONTO: "SF355692",
+
+  // Payment systems — SPEI monthly aggregates (CF620)
+  SPEI_MENSUAL_NUM: "SF273317",
+  SPEI_MENSUAL_MONTO: "SF273318",
+
+  // Payment systems — TEF CECOBAN daily
+  TEF_DIARIO_NUM: "SF316143",
+  TEF_DIARIO_MONTO: "SF316144",
+
+  // Payment systems — Cards (quarterly)
+  TARJETAS_CREDITO_MC: "SF325442",
+  TARJETAS_CREDITO_VISA: "SF325443",
+  TARJETAS_CREDITO_OTRAS: "SF325444",
+  TARJETAS_DEBITO_MC: "SF325445",
+  TARJETAS_DEBITO_VISA: "SF325446",
+  TARJETAS_DEBITO_OTRAS: "SF325447",
+
+  // Payment systems — Card operations daily (CF914/CF915)
+  TARJETAS_OPS_MONTO_TOTAL: "SF351084",
+  TARJETAS_OPS_MONTO_DEBITO: "SF351085",
+  TARJETAS_OPS_NUM_TOTAL: "SF351177",
+  TARJETAS_OPS_NUM_DEBITO: "SF351178",
+
+  // Payment systems — ATM operations (quarterly)
+  ATM_OPS_TOTAL_NUM: "SF62269",
+  ATM_OPS_MISMO_BANCO_NUM: "SF61600",
+  ATM_OPS_INTERBANCARIAS_NUM: "SF61601",
+
+  // Payment systems — Cheques (quarterly, MDP for amounts)
+  CHEQUES_MISMO_MN_NUM: "SF42608",
+  CHEQUES_INTER_MN_NUM: "SF42609",
+  CHEQUES_MISMO_MN_MONTO: "SF42610",
+  CHEQUES_INTER_MN_MONTO: "SF42611",
+  CHEQUES_MISMO_USD_NUM: "SF42616",
+  CHEQUES_INTER_USD_NUM: "SF42617",
+
+  // Payment systems — Transfers by internet banking (quarterly)
+  BANCA_INTERNET_USUARIOS: "SF42528",
+  TRANSFERENCIAS_INTERNET_MISMO_NUM: "SF42572",
+  TRANSFERENCIAS_INTERNET_MISMO_MONTO: "SF42573",
+  TRANSFERENCIAS_INTERNET_INTER_NUM: "SF42574",
+
+  // Payment systems — Direct debits (quarterly)
+  DOMICILIACIONES_MISMO_NUM: "SF42588",
+  DOMICILIACIONES_MISMO_MONTO: "SF42589",
+
+  // Payment systems — SWIFT (quarterly)
+  SWIFT_ENVIADAS_NUM: "SF42541",
+  SWIFT_ENVIADAS_MONTO: "SF42542",
+
+  // Payment systems — Directo a México (monthly)
+  DIRECTO_MX_DIAS: "SF41232",
+  DIRECTO_MX_NUM: "SF46905",
+  DIRECTO_MX_MONTO: "SF46907",
+
+  // Payment systems — CoDi adoption
+  CODI_CUENTAS_PAGO: "SF335630",
+  CODI_CUENTAS_COBRO: "SF335631",
 
   // Economic activity
   IGAE: "SR17692",
@@ -393,17 +485,419 @@ export const SERIES_META: Record<
     frequency: "quarterly",
   },
 
-  // Tourism
+  // Tourism — revenue & spending
   SE5855: {
-    label: "Ingresos Turismo Internacional",
-    shortLabel: "Turismo Ingresos",
+    label: "Ingresos por Viajeros Internacionales",
+    shortLabel: "Ingresos",
+    unit: "Miles de USD",
+    frequency: "monthly",
+  },
+  SE5857: {
+    label: "Egresos por Viajeros Internacionales",
+    shortLabel: "Egresos",
     unit: "Miles de USD",
     frequency: "monthly",
   },
   SE5828: {
-    label: "Saldo Viajeros Internacionales",
-    shortLabel: "Saldo Turismo",
+    label: "Saldo de Viajeros Internacionales",
+    shortLabel: "Saldo",
     unit: "Miles de USD",
+    frequency: "monthly",
+  },
+  SE5826: {
+    label: "Ingresos Turistas No Fronterizos",
+    shortLabel: "No Fronterizos",
+    unit: "Miles de USD",
+    frequency: "monthly",
+  },
+  SE5852: {
+    label: "Ingresos Visitantes en Cruceros",
+    shortLabel: "Cruceros",
+    unit: "Miles de USD",
+    frequency: "monthly",
+  },
+  SE5853: {
+    label: "Ingresos Fronterizos Con Pernocta",
+    shortLabel: "Front. Pernocta",
+    unit: "Miles de USD",
+    frequency: "monthly",
+  },
+  SE5854: {
+    label: "Ingresos Fronterizos Sin Pernocta",
+    shortLabel: "Front. Sin Pern.",
+    unit: "Miles de USD",
+    frequency: "monthly",
+  },
+
+  // Tourism — visitor counts
+  SE5829: {
+    label: "Visitantes Internacionales (Ingresos)",
+    shortLabel: "Visitantes In",
+    unit: "Miles",
+    frequency: "monthly",
+  },
+  SE5830: {
+    label: "Turistas Internacionales (Ingresos)",
+    shortLabel: "Turistas In",
+    unit: "Miles",
+    frequency: "monthly",
+  },
+  SE5831: {
+    label: "Excursionistas Internacionales (Ingresos)",
+    shortLabel: "Excursionistas In",
+    unit: "Miles",
+    frequency: "monthly",
+  },
+  SE5841: {
+    label: "Visitantes Internacionales (Egresos)",
+    shortLabel: "Visitantes Out",
+    unit: "Miles",
+    frequency: "monthly",
+  },
+  SE5847: {
+    label: "Visitantes en Cruceros",
+    shortLabel: "Cruceros Vis.",
+    unit: "Miles",
+    frequency: "monthly",
+  },
+
+  // Tourism — average spending
+  SE5835: {
+    label: "Gasto Medio por Turista (Ingresos)",
+    shortLabel: "Gasto/Turista",
+    unit: "USD",
+    frequency: "monthly",
+  },
+  SE5836: {
+    label: "Gasto Medio Turista No Fronterizo",
+    shortLabel: "Gasto/No Front.",
+    unit: "USD",
+    frequency: "monthly",
+  },
+  SE5840: {
+    label: "Gasto Medio Visitante en Crucero",
+    shortLabel: "Gasto/Crucero",
+    unit: "USD",
+    frequency: "monthly",
+  },
+
+  // Payment systems — SPEI daily
+  SF316454: {
+    label: "SPEI Enviadas (Número)",
+    shortLabel: "SPEI Env. #",
+    unit: "Operaciones",
+    frequency: "daily",
+  },
+  SF316455: {
+    label: "SPEI Enviadas (Monto)",
+    shortLabel: "SPEI Env. MDP",
+    unit: "MDP",
+    frequency: "daily",
+  },
+  SF316456: {
+    label: "SPEI Recibidas (Número)",
+    shortLabel: "SPEI Rec. #",
+    unit: "Operaciones",
+    frequency: "daily",
+  },
+  SF316457: {
+    label: "SPEI Recibidas (Monto)",
+    shortLabel: "SPEI Rec. MDP",
+    unit: "MDP",
+    frequency: "daily",
+  },
+
+  // Payment systems — SPEI P2P
+  SF336085: {
+    label: "SPEI P2P Total (Número)",
+    shortLabel: "P2P Total #",
+    unit: "Operaciones",
+    frequency: "daily",
+  },
+  SF336086: {
+    label: "SPEI P2P < 8,000 MXN (Número)",
+    shortLabel: "P2P <8k #",
+    unit: "Operaciones",
+    frequency: "daily",
+  },
+  SF336087: {
+    label: "SPEI P2P 8k–300k MXN (Número)",
+    shortLabel: "P2P 8k-300k #",
+    unit: "Operaciones",
+    frequency: "daily",
+  },
+  SF336088: {
+    label: "SPEI P2P > 300,000 MXN (Número)",
+    shortLabel: "P2P >300k #",
+    unit: "Operaciones",
+    frequency: "daily",
+  },
+  SF336081: {
+    label: "SPEI P2P Total (Monto)",
+    shortLabel: "P2P Total MXN",
+    unit: "MXN",
+    frequency: "daily",
+  },
+  SF355689: {
+    label: "SPEI P2P Bajo Valor (Número)",
+    shortLabel: "P2P Bajo #",
+    unit: "Operaciones",
+    frequency: "daily",
+  },
+  SF355690: {
+    label: "SPEI P2P Alto Valor (Número)",
+    shortLabel: "P2P Alto #",
+    unit: "Operaciones",
+    frequency: "daily",
+  },
+  SF355691: {
+    label: "SPEI P2P Bajo Valor (Monto)",
+    shortLabel: "P2P Bajo MXN",
+    unit: "MXN",
+    frequency: "daily",
+  },
+  SF355692: {
+    label: "SPEI P2P Alto Valor (Monto)",
+    shortLabel: "P2P Alto MXN",
+    unit: "MXN",
+    frequency: "daily",
+  },
+
+  // Payment systems — SPEI monthly
+  SF273317: {
+    label: "SPEI Mensual P2P (Número)",
+    shortLabel: "SPEI Mes #",
+    unit: "Operaciones",
+    frequency: "monthly",
+  },
+  SF273318: {
+    label: "SPEI Mensual P2P (Monto)",
+    shortLabel: "SPEI Mes MXN",
+    unit: "MXN",
+    frequency: "monthly",
+  },
+
+  // Payment systems — TEF CECOBAN
+  SF316143: {
+    label: "TEF CECOBAN Diario (Número)",
+    shortLabel: "TEF #",
+    unit: "Operaciones",
+    frequency: "daily",
+  },
+  SF316144: {
+    label: "TEF CECOBAN Diario (Monto)",
+    shortLabel: "TEF MDP",
+    unit: "MDP",
+    frequency: "daily",
+  },
+
+  // Payment systems — Cards
+  SF325442: {
+    label: "Tarjetas Crédito Mastercard",
+    shortLabel: "Créd. MC",
+    unit: "Tarjetas",
+    frequency: "quarterly",
+  },
+  SF325443: {
+    label: "Tarjetas Crédito Visa",
+    shortLabel: "Créd. Visa",
+    unit: "Tarjetas",
+    frequency: "quarterly",
+  },
+  SF325444: {
+    label: "Tarjetas Crédito Otras Marcas",
+    shortLabel: "Créd. Otras",
+    unit: "Tarjetas",
+    frequency: "quarterly",
+  },
+  SF325445: {
+    label: "Tarjetas Débito Mastercard",
+    shortLabel: "Déb. MC",
+    unit: "Tarjetas",
+    frequency: "quarterly",
+  },
+  SF325446: {
+    label: "Tarjetas Débito Visa",
+    shortLabel: "Déb. Visa",
+    unit: "Tarjetas",
+    frequency: "quarterly",
+  },
+  SF325447: {
+    label: "Tarjetas Débito Otras Marcas",
+    shortLabel: "Déb. Otras",
+    unit: "Tarjetas",
+    frequency: "quarterly",
+  },
+
+  // Payment systems — Card operations daily
+  SF351084: {
+    label: "Operaciones Tarjetas Monto Total",
+    shortLabel: "Ops. Monto",
+    unit: "MXN",
+    frequency: "daily",
+  },
+  SF351085: {
+    label: "Operaciones Tarjetas Débito Monto",
+    shortLabel: "Ops. Déb. Monto",
+    unit: "MXN",
+    frequency: "daily",
+  },
+  SF351177: {
+    label: "Operaciones Tarjetas Número Total",
+    shortLabel: "Ops. Total #",
+    unit: "Operaciones",
+    frequency: "daily",
+  },
+  SF351178: {
+    label: "Operaciones Tarjetas Débito Número",
+    shortLabel: "Ops. Déb. #",
+    unit: "Operaciones",
+    frequency: "daily",
+  },
+
+  // Payment systems — ATM
+  SF62269: {
+    label: "Operaciones ATM Total",
+    shortLabel: "ATM Total",
+    unit: "Operaciones",
+    frequency: "quarterly",
+  },
+  SF61600: {
+    label: "Operaciones ATM Mismo Banco",
+    shortLabel: "ATM Mismo Bco",
+    unit: "Operaciones",
+    frequency: "quarterly",
+  },
+  SF61601: {
+    label: "Operaciones ATM Interbancarias",
+    shortLabel: "ATM Interbank",
+    unit: "Operaciones",
+    frequency: "quarterly",
+  },
+
+  // Payment systems — Cheques
+  SF42608: {
+    label: "Cheques Mismo Banco MN (Número)",
+    shortLabel: "Chq. Mismo #",
+    unit: "Cheques",
+    frequency: "quarterly",
+  },
+  SF42609: {
+    label: "Cheques Interbancarios MN (Número)",
+    shortLabel: "Chq. Inter. #",
+    unit: "Cheques",
+    frequency: "quarterly",
+  },
+  SF42610: {
+    label: "Cheques Mismo Banco MN (Importe)",
+    shortLabel: "Chq. Mismo MDP",
+    unit: "MDP",
+    frequency: "quarterly",
+  },
+  SF42611: {
+    label: "Cheques Interbancarios MN (Importe)",
+    shortLabel: "Chq. Inter. MDP",
+    unit: "MDP",
+    frequency: "quarterly",
+  },
+  SF42616: {
+    label: "Cheques Mismo Banco USD (Número)",
+    shortLabel: "Chq. Mismo USD #",
+    unit: "Cheques",
+    frequency: "quarterly",
+  },
+  SF42617: {
+    label: "Cheques Interbancarios USD (Número)",
+    shortLabel: "Chq. Inter. USD #",
+    unit: "Cheques",
+    frequency: "quarterly",
+  },
+
+  // Payment systems — Internet banking
+  SF42528: {
+    label: "Usuarios Banca por Internet",
+    shortLabel: "Usuarios Inet",
+    unit: "Usuarios",
+    frequency: "quarterly",
+  },
+  SF42572: {
+    label: "Transferencias Internet Mismo Banco (Número)",
+    shortLabel: "Transf. Mismo #",
+    unit: "Operaciones",
+    frequency: "quarterly",
+  },
+  SF42573: {
+    label: "Transferencias Internet Mismo Banco (Monto)",
+    shortLabel: "Transf. Mismo MDP",
+    unit: "MDP",
+    frequency: "quarterly",
+  },
+  SF42574: {
+    label: "Transferencias Internet Interbancarias (Número)",
+    shortLabel: "Transf. Inter. #",
+    unit: "Operaciones",
+    frequency: "quarterly",
+  },
+
+  // Payment systems — Direct debits
+  SF42588: {
+    label: "Domiciliaciones Mismo Banco (Número)",
+    shortLabel: "Domic. #",
+    unit: "Operaciones",
+    frequency: "quarterly",
+  },
+  SF42589: {
+    label: "Domiciliaciones Mismo Banco (Monto)",
+    shortLabel: "Domic. MDP",
+    unit: "MDP",
+    frequency: "quarterly",
+  },
+
+  // Payment systems — SWIFT
+  SF42541: {
+    label: "SWIFT Operaciones Internacionales Enviadas (Número)",
+    shortLabel: "SWIFT Env. #",
+    unit: "Operaciones",
+    frequency: "quarterly",
+  },
+  SF42542: {
+    label: "SWIFT Operaciones Internacionales Enviadas (Monto)",
+    shortLabel: "SWIFT Env. MDP",
+    unit: "MDP",
+    frequency: "quarterly",
+  },
+
+  // Payment systems — Directo a México
+  SF41232: {
+    label: "Directo a México — Días Operados",
+    shortLabel: "DaM Días",
+    unit: "Días",
+    frequency: "monthly",
+  },
+  SF46905: {
+    label: "Directo a México — Transferencias (Número)",
+    shortLabel: "DaM Transf. #",
+    unit: "Operaciones",
+    frequency: "monthly",
+  },
+  SF46907: {
+    label: "Directo a México — Transferencias (Monto)",
+    shortLabel: "DaM Monto",
+    unit: "Miles de USD",
+    frequency: "monthly",
+  },
+
+  // Payment systems — CoDi
+  SF335630: {
+    label: "CoDi Cuentas con al Menos un Pago",
+    shortLabel: "CoDi Pagos",
+    unit: "Cuentas",
+    frequency: "monthly",
+  },
+  SF335631: {
+    label: "CoDi Cuentas con al Menos un Cobro",
+    shortLabel: "CoDi Cobros",
+    unit: "Cuentas",
     frequency: "monthly",
   },
 
